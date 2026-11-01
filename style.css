@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: #f4f5f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.tabs-wrapper {
+    width: 650px;
+}
+
+.tabs-wrapper input[type="radio"] {
+    display: none;
+}
+
+.tabs-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #616161;
+    padding: 6px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tabs-header label {
+    position: relative;
+    z-index: 2;
+    width: 90px;
+    padding: 10px 0;
+    text-align: center;
+    color: #e0e0e0;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.glider {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 90px;
+    height: 36px;
+    transition: transform 0.3s ease;
+    background: #171717;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+#tab1:checked~.tabs-header .glider {
+    transform: translateX(0%);
+}
+
+#tab2:checked~.tabs-header .glider {
+    transform: translateX(100%);
+}
+
+#tab3:checked~.tabs-header .glider {
+    transform: translateX(200%);
+}
+
+#tab1:checked~.tabs-content {
+    background: rgb(236, 20, 20);
+}
+
+#tab2:checked~.tabs-content {
+    background: rgb(20, 56, 236);
+}
+
+#tab3:checked~.tabs-content {
+    background: rgb(236, 139, 20);
+}
+
+#tab1:checked~.tabs-header label[for="tab1"],
+#tab2:checked~.tabs-header label[for="tab2"],
+#tab3:checked~.tabs-header label[for="tab3"] {
+    color: #e79c45;
+}
+
+.tabs-content {
+    background: #616161;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    height: 360px;
+}
+
+.tab-pane {
+    display: none;
+    gap: 28px;
+    align-items: flex-start;
+}
+
+#tab1:checked~.tabs-content #content1,
+#tab2:checked~.tabs-content #content2,
+#tab3:checked~.tabs-content #content3 {
+    display: flex;
+}
+
+.tab-pane img {
+    width: 280px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.text-box {
+    padding-top: 15px;
+    color: #ffffff;
+}
+
+.text-box h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 16px;
+
+}
+
+.text-box p {
+    font-size: 16px;
+    color: #cccccc;
+}
